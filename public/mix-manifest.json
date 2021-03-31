@@ -1,0 +1,11 @@
+{
+    "/js/app.js": "/js/app.js",
+    "/js/partials/layouts/backend.js": "/js/partials/layouts/backend.js",
+    "/js/partials/layouts/frontend.js": "/js/partials/layouts/frontend.js",
+    "/js/partials/guest/homepage.js": "/js/partials/guest/homepage.js",
+    "/js/partials/guest/menu-restaurant.js": "/js/partials/guest/menu-restaurant.js",
+    "/js/partials/guest/success.js": "/js/partials/guest/success.js",
+    "/css/app.css": "/css/app.css",
+    "/css/style-guest.css": "/css/style-guest.css",
+    "/css/style.css": "/css/style.css"
+}

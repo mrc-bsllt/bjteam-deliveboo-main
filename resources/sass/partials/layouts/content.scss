@@ -1,0 +1,670 @@
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index:100;
+  width: 100%;
+  height: $headerHeight;
+  transition: all 0.3s linear;
+
+  &.active {
+    box-shadow: $darkShadowCard;
+
+  }
+
+  .container {
+    height: 100%;
+
+    .row {
+      height: 100%;
+
+      .left {
+        @include SetFlexContainer (row, center, center, wrap);
+        height: 100%;
+      }
+
+      .header_center {
+        @include SetFlexContainer (row, center, center, wrap);
+        height: 100%;
+        position: relative;
+        //background-color: red;
+
+        input[type=text] {
+          width: 80%;
+          padding: 5px 10px;
+          border-radius: 20px;
+          background-color: $darkWhite;
+          box-shadow: $darkShadowCard;
+          border: none;
+          transition: all .5s;
+          font-weight: 600;
+
+          &:focus {
+            outline: none;
+            transform: scale(1.1);
+          }
+        }
+        .searched_box{
+          width: 80%;
+          padding: 5px 10px;
+          border-radius: 10px;
+          background-color: $darkWhite;
+          box-shadow: $darkShadowCard;
+          position: absolute;
+          left: 10%;
+          top: 90%;
+
+          li{
+            padding: 10px;
+            border-radius: 50px;
+            border-bottom: 2px solid #ba181b;
+            box-shadow: $darkShadowCard;
+            margin: 10px 0;
+
+            a{
+              display: flex;
+              align-items: center;
+              // &:hover{
+              //   color: black;
+              // }
+
+              .container_image{
+                box-shadow: $darkShadowCard;
+                padding: 5px;
+                width: 50px;
+                height: 50px;
+                border-radius: 100%;
+
+                img{
+                  width: 100%;
+                  height: 100%;
+                  border-radius: 100%;
+                }
+              }
+              span{
+                padding-left: 10px;
+                font-size: 20px;
+                font-weight: 600;
+              }
+            }
+
+
+            &:hover{
+              background: rgba(241, 26, 26, 0.411);
+            }
+          }
+
+
+
+        }
+      }
+
+      .right {
+        height: 100%;
+
+        #container_buttons_log_reg {
+          @include SetFlexContainer (row, flex-end, center, nowrap);
+          height: 100%;
+
+          #btn-hamburger {
+            display: none;
+          }
+          #hamburger_list {
+            display: none;
+          }
+
+          li.logo_section {
+            position: relative;
+
+            a.account {
+
+              img.restaurant_logo {
+                width: 60px;
+                height: 60px;
+                padding: 2px;
+                border-radius: 50%;
+                border: 2px solid #A9E5BB;
+              }
+
+              i {
+                color: $darkWhite;
+                font-size: 30px;
+                vertical-align: middle;
+                margin: 0 5px;
+                transition: all 0.3s linear;
+
+                &.active {
+                  transform: rotate(-180deg);
+                }
+              }
+            }
+
+            ul.drop_down_list {
+              @include setPositionAbsolute(110%, -30%);
+              width: max-content;
+              padding: 10px 20px;
+              border-radius: $borderRadCard;
+              background-color: $darkWhite;
+              box-shadow: $shadowDashboard;
+
+              li {
+                margin: 10px 0;
+
+                a {
+                  color: $black;
+                  font-weight: 600;
+                }
+              }
+
+              .exit_icon {
+                display: none;
+              }
+            }
+          }
+
+        }
+      }
+    }
+  }
+}
+
+main {
+  // min-height: calc( 100vh - 160px);
+  //margin-top: 80px;
+}
+
+
+
+// FOOTER farà parte del layout
+footer {
+  margin-top: 50px;
+
+  #footer-bottom {
+    color: white;
+    @include SetFlexContainer(row, space-around, center, nowrap);
+    background-color: #1d1d1d;
+    min-height: 100px;
+    ul {
+      min-height: 320px;
+      &#Team4 {
+        li {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+      
+      }
+      }
+      li {
+        i {
+          margin: 10px;
+          font-size: 25px;
+        }
+        img.img_icon_ft {
+          height: 25px;
+        }
+        a {
+          color: white;
+        }
+      }
+    }
+
+  }
+
+  
+}
+
+//BANNER DEL CARRELLO
+#cart_banner {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 500px;
+  background-color: $white;
+}
+
+.slide-enter-active {
+  -moz-transition-duration: 0.3s;
+  -webkit-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -moz-transition-timing-function: linear;
+  -webkit-transition-timing-function: linear;
+  -o-transition-timing-function: linear;
+  transition-timing-function: linear;
+}
+
+.slide-leave-active {
+  -moz-transition-duration: 0.3s;
+  -webkit-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -moz-transition-timing-function: linear;
+  -webkit-transition-timing-function: linear;
+  -o-transition-timing-function: linear;
+  transition-timing-function: linear;
+}
+
+.slide-enter-to, .slide-leave {
+  max-height: 100px;
+  overflow: hidden;
+}
+
+.slide-enter, .slide-leave-to {
+  overflow: hidden;
+  max-height: 0;
+}
+
+/* Enter and leave animations can use different */
+/* durations and timing functions.              */
+.slide-fade-enter-active {
+  transition: all .3s ease;
+}
+.slide-fade-leave-active {
+  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active below version 2.1.8 */ {
+  transform: translateX(10px);
+  opacity: 0;
+}
+
+@media all and (max-width: 992px) {
+  footer {
+    img {
+      margin-top:100px;
+    }
+    #footer-bottom{
+    display: none;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//MEDIA QUERY-------------------------------------------------------------------
+
+//MD
+@media all and (max-width: 991px) {
+
+  header {
+    // position: fixed;
+    // top: 0;
+    // left: 0;
+    // z-index:100;
+    // width: 100%;
+    height: max-content; //
+    padding: 20px 0; //
+    //background-color: transparent;
+    // transition: all 0.3s linear;
+
+    // &.active {
+    //   box-shadow: $darkShadowCard;
+    //
+    // }
+
+    .container {
+      height: 100%;
+
+      .row {
+        height: 100%;
+
+        .left {
+          @include SetFlexContainer (row, center, center, wrap);
+          height: 100%;
+
+          a {
+            z-index: 250; //
+          }
+        }
+
+        .header_center {
+          @include SetFlexContainer (row, center, center, wrap);
+          height: 100%;
+          position: relative;
+          //background-color: red;
+
+          input[type=text] {
+            width: 80%;
+            margin-top: 15px; //
+            padding: 20px 20px; //
+            border-radius: 50px; //
+            background-color: $darkWhite;
+            box-shadow: $darkShadowCard;
+            border: none;
+            transition: all .5s;
+            z-index: 300; //
+            font-size: 15px; //
+
+            &:focus {
+              outline: none;
+              transform: scale(1.1);
+            }
+          }
+          .searched_box{
+            width: 80%;
+            padding: 5px 10px;
+            border-radius: 10px;
+            background-color: $darkWhite;
+            box-shadow: $darkShadowCard;
+            position: absolute;
+            left: 10%;
+            top: 110%; //
+
+            li{
+              padding: 10px;
+              border-radius: 50px;
+              border-bottom: 2px solid #ba181b;
+              box-shadow: $darkShadowCard;
+              margin: 10px 0;
+
+              a{
+                display: flex;
+                align-items: center;
+                // &:hover{
+                //   color: black;
+                // }
+
+                .container_image{
+                  box-shadow: $darkShadowCard;
+                  padding: 5px;
+                  width: 50px;
+                  height: 50px;
+                  border-radius: 100%;
+
+                  img{
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 100%;
+                  }
+                }
+                span{
+                  padding-left: 10px;
+                  font-size: 20px;
+                  font-weight: 600;
+                }
+              }
+
+
+              &:hover{
+                background: rgba(241, 26, 26, 0.411);
+              }
+            }
+
+
+
+          }
+        }
+
+        .right {
+          @include setPositionAbsolute(20px, 0); //
+          height: 100%;
+
+          #container_buttons_log_reg {
+            @include SetFlexContainer (row, flex-end, center, nowrap);
+            height: 100%;
+
+            li.login,
+            li.register {
+              display: none;
+            }
+
+            //hamburger menu
+            #btn-hamburger {
+              position: absolute !important;
+              top: 0;
+              right: 20px !important;
+              display: block;
+              position: fixed;
+              top: 0;
+              right: 0;
+              border:none;
+              outline:0;
+              background: $darkWhite; // change color to your favorite here
+              border-radius: 5px;
+              padding: 15px;
+              cursor: pointer;
+              .line-1, .line-2, .line-3 {
+                width: 30px;
+                height: 2px;
+                background-color: #ba181b;
+                margin: 4px 0;
+                transition: 0.4s;
+              }
+              &.animeOpenClose .line-1 {
+                -webkit-transform: rotate(-45deg) translate(-4px, 4px);
+                transform: rotate(-45deg) translate(-5px, 4px);
+              }
+              &.animeOpenClose .line-2 {
+                opacity: 0;
+              }
+              &.animeOpenClose .line-3 {
+                -webkit-transform: rotate(45deg) translate(-4px, -4px);
+                transform: rotate(45deg) translate(-4px, -4px);
+              }
+            }
+            #hamburger_list {
+              display: block;
+              position: absolute;
+              top: 35%; //
+              border-radius: 10px;
+              background-color: $darkWhite;
+              box-shadow: $darkShadowCard;
+              z-index: 300;
+
+              li {
+                margin: 10px 0;
+
+                a {
+                  color: $black;
+                  font-weight: 600;
+                  font-size: 20px;
+                }
+              }
+            }
+
+            li.logo_section {
+              position: fixed;
+              top: 15px;
+              right: 15px;
+
+              a.account {
+
+                img.restaurant_logo {
+                  width: 80px; //
+                  height: 80px; //
+                  padding: 2px;
+                  border-radius: 50%;
+                  border: 2px solid #A9E5BB;
+                }
+
+                i {
+                  color: $darkWhite;
+                  font-size: 30px;
+                  vertical-align: middle;
+                  margin: 0 5px;
+                  transition: all 0.3s linear;
+
+                  &.active {
+                    transform: rotate(-180deg);
+                  }
+                }
+              }
+
+              ul.drop_down_list {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 50vh;
+                border-radius: 0 0 400px 400px;
+                background-color: $darkWhite;
+                box-shadow: $shadowDashboard;
+
+                li {
+                  margin: 20px 0;
+
+                  a {
+                    color: $black;
+                    font-weight: 600;
+                    font-size: 40px;
+                    text-transform: uppercase;
+                  }
+                }
+
+                .exit_icon {
+                  @include SetFlexContainer (row, center, center, nowrap);
+                  position: fixed;
+                  top: 0;
+                  right: 0;
+                  width: 80px;
+                  height: 50px;
+
+                  i {
+                    font-size: 30px;
+                  }
+                }
+              }
+            }
+
+          }
+        }
+      }
+    }
+  }
+
+  main {
+    // min-height: calc( 100vh - 160px);
+    //margin-top: 80px;
+  }
+
+
+
+  // FOOTER farà parte del layout
+  footer {
+
+    #footer-bottom {
+      background-color: #1d1d1d;
+      min-height: 100px;
+    }
+
+  }
+
+}
+
+@media all and (max-width: 767px){
+
+  header{
+
+    .container{
+
+      .row{
+
+        .right{
+
+          #container_buttons_log_reg{
+
+            li.logo_section{
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//XS
+@media all and (max-width: 576px) {
+
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index:100;
+    width: 100%;
+    //height: $headerHeight;
+    transition: all 0.3s linear;
+
+    &.active {
+      box-shadow: $darkShadowCard;
+
+    }
+
+    .container {
+      height: 100%;
+
+      .row {
+        height: 100%;
+
+        .right{
+
+          #container_buttons_log_reg{
+
+            li.logo_section{
+
+              a.account {
+
+                img.restaurant_logo {
+                  width: 50px;
+                  height: 50px;
+                }
+              }
+            }
+          }
+        }
+
+        .left {
+          @include SetFlexContainer (row, center, center, wrap);
+          height: 100%;
+        }
+
+        .header_center {
+          @include SetFlexContainer (row, center, center, wrap);
+          height: 100%;
+          position: relative;
+          //background-color: red;
+
+          input[type=text] {
+            //width: 60%;
+            //padding: 5px 10px;
+            //border-radius: 15px;
+            margin-top: 10px; //
+            background-color: $darkWhite;
+            box-shadow: $darkShadowCard;
+            border: none;
+            transition: all .5s;
+            font-weight: 600;
+            padding: 10px 10px;
+          }
+        }
+
+        li.logo_section {
+
+          ul.drop_down_list {
+            height: 35vh !important;
+          }
+        }
+      }
+    }
+  }
+}

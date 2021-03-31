@@ -1,0 +1,24 @@
+#dashboard_order{
+  .card_orders{
+      margin: 20px 15px;
+      box-shadow: 0 4px 20px 0px rgb(0 0 0 / 14%), 0 7px 10px -5px rgb(0 188 212 / 40%);
+      position: relative;
+      border: 0;
+      background: $white;
+
+    .card_order{
+      box-shadow: $shadowCard;
+      max-height: 275px;
+      padding: 20px;
+      color: $black;
+      overflow: auto;
+
+
+
+      .card_left{
+        display: flex;
+        justify-content: flex-start;
+      }
+    }
+  }
+}

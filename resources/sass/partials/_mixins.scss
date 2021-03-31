@@ -1,0 +1,13 @@
+@mixin SetFlexContainer ($direction, $j_c, $a_i, $f_w) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $j_c;
+  align-items: $a_i;
+  flex-wrap: $f_w;
+}
+
+@mixin setPositionAbsolute($top, $left) {
+  position: absolute;
+  top: $top;
+  left: $left; 
+}

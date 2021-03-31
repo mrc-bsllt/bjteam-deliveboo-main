@@ -1,0 +1,15 @@
+// Partials
+@import 'partials/_vars';
+@import 'partials/_common';
+@import 'partials/_mixins';
+@import 'animations/_dashboard-animations';
+@import 'partials/restaurants/_create'; // form per le domande e registrare il ristorante
+@import 'partials/layouts/backend'; // layout BACKEND
+@import 'partials/admin-panel/dashboard';// stile dashboard (main, NON layout) admin-panel
+@import 'partials/admin-panel/products-index'; // stile index products
+@import 'partials/admin-panel/products-create-edit'; // stile create products e edit product
+@import 'partials/admin-panel/products-show.scss'; // stile show prodotto
+@import 'partials/admin-panel/orders-index.scss'; // stile order-index
+@import 'partials/admin-panel/chart.scss'; // stile grafico
+// fonts
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');

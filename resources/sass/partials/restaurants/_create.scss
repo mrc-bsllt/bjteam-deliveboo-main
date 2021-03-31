@@ -1,0 +1,59 @@
+#restaurant_form {
+  height: calc(100vh - 55px);
+  padding: 20px 0;
+  background-image: url("/img/main-bg.jpg");
+  overflow-x: hidden;
+
+  .container {
+    height: 100%;
+
+    form {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+
+      .box {
+        height: calc(100% / 6 - 20px);
+        margin-bottom: 20px;
+        background-color: #F9F9F9;
+        border-radius: 20px;
+        box-shadow: 0 2px 20px 0 rgb(0 0 0 / 10%);
+
+        .input_container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100%;
+
+          i {
+            font-size: 50px;
+            color: $cl_green;
+            transition: opacity 0.5s linear;
+          }
+          input[type=text] {
+            width: 70%;
+            margin: 0 20px;
+            font-size: 30px;
+            font-weight: 600;
+            background-color: transparent;
+            border: none;
+            border-bottom: 3px solid $cl_grey;
+            color: $cl_grey;
+
+            &:focus {
+              outline: none;
+            }
+          }
+          button {
+            background-color: transparent;
+            border: none;
+
+            i {
+              color: $cl_black;
+            }
+          }
+        }
+      }
+    }
+  }
+}

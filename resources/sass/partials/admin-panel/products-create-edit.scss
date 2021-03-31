@@ -1,0 +1,383 @@
+// classi comuni
+.orange_icon_box {
+  @include SetFlexContainer (row, center, center, nowrap);
+  @include setPositionAbsolute(-30px, 20px);
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(60deg, #ffa726, #fb8c00);
+  border-radius: 5px;
+  box-shadow: $darkShadowCard;
+
+  i {
+    font-size: 25px;
+    color: $white;
+  }
+}
+
+.small_green_box {
+  @include setPositionAbsolute(-18px, 75px);
+  width: 100px;
+  height: 20px;
+  background: linear-gradient(60deg, #66bb6a, #43a047);
+  border-radius: 5px;
+  box-shadow: $darkShadowCard;
+
+    label {
+      font-weight: 600;
+      font-style: italic;
+    }
+}
+
+    //buttons
+    .btn-submit,
+    .btn_back {
+      border: none;
+      width: 150px;
+      height: 50px;
+      border-radius: 30px;
+      box-shadow: $shadowCard;
+      color: $white;
+      font-weight: 700;
+    }
+    .btn-submit {
+      background-color: $greenPrimary;
+    }
+    .btn_back {
+      display: inline-block;
+      background-color: #E56668;
+    }
+
+// css specifico
+#product_create,
+#product_edit,
+#restaurant_create,
+.dashboard_edit_restaurant_form {
+  width: 100%;
+  box-shadow: $shadowCard;
+  border-radius: $borderRadCard;
+  background-color: $white;
+
+  .restaurant_image_hero_box {
+    @include setPositionAbsolute(85%, 30%);
+    width: 50%;
+    height: 150px;
+    background-color: $white;
+    box-shadow: $darkShadowCard;
+    border-radius: $borderRadCard;
+    overflow: hidden;
+
+    label {
+      @include setPositionAbsolute(50%, 50%);
+      transform: translate(-50%, -50%);
+
+      input {
+        display: none;
+      }
+      i {
+        padding: 20px;
+        background-color: rgba(255, 255, 255, 0.8);
+        border-radius: 50%;
+        font-size: 30px;
+        cursor: pointer;
+      }
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  .form_box {
+    width: 100%;
+    position: relative;
+    padding: 150px 0 30px;
+
+    // cerchio grande che contiene l'icona principale della sezione
+    .product_create_img {
+      @include SetFlexContainer (row, center, center, nowrap);
+      @include setPositionAbsolute(-50px, -50px);
+      width: 150px;
+      height: 150px;
+      padding: 7px;
+      box-shadow: $darkShadowCard;
+      border-radius: 50%;
+
+      i {
+        font-size: 80px;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 50%;
+      }
+    }
+
+    // rettangolo verde che contiene il nome della sezione
+    .product_name_green_box {
+      @include SetFlexContainer (row, flex-start, center, nowrap);
+      @include setPositionAbsolute(-35px, 50%);
+      width: 45%;
+      height: 100px;
+      padding: 0 16px;
+      background: linear-gradient(60deg, #66bb6a, #43a047);
+      border-radius: 5px;
+      box-shadow: $darkShadowCard;
+
+      p {
+        margin: 0;
+        text-transform: uppercase;
+        color: $white;
+        font-weight: bold;
+        font-size: 20px;
+      }
+    }
+
+    .create_add_image {
+      @include setPositionAbsolute(-30px, 80px);
+      display: block;
+      width: 50px;
+      height: 50px;
+      line-height: 50px;
+      background-color: $yellowPrimary;
+      box-shadow: $darkShadowCard;
+      border-radius: 50%;
+      text-align: center;
+      cursor: pointer;
+
+      input[type=file] {
+        display: none;
+      }
+    }
+
+    .create_product_input {
+      position: relative;
+      margin-bottom: 50px;
+      padding: 10px 10px 10px 100px;
+      box-shadow: 0 4px 20px 0px rgb(0 0 0 / 14%), 0 7px 10px -5px rgb(0 188 212 / 40%);
+      border-radius: 5px;
+
+     input[type=number],input[type=tel],input[type=text] {
+        width: 100%;
+        padding: 0 10px;
+        background-color: transparent;
+        border: none;
+        border-bottom: 2px solid $yellowPrimary;
+        vertical-align: text-bottom;
+        &:focus {
+          outline: none;
+        }
+      }
+
+      .select2-container--default .select2-selection--multiple {
+        border: none;
+        border-bottom: 2px solid #FFC244;
+        padding-bottom: 0;
+      }
+
+      textarea {
+
+        &.select2-search__field {
+          height: 28px;
+          border-right: none;
+          border-bottom: none;
+          margin:0px;
+        }
+        display: block;
+        width: 100%;
+        padding: 5px;
+        resize: none;
+        border: none;
+        border-bottom: 2px solid $yellowPrimary;
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+    }
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      /* display: none; <- Crashes Chrome on hover */
+      -webkit-appearance: none;
+      margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+    }
+
+    input[type=number] {
+        -moz-appearance:textfield; /* Firefox */
+    }
+    //box per le check box di vegetariano e gluten free
+    .create_product_check_box {
+      position: relative;
+      display: inline-block;
+      width: 200px;
+      height: 100px;
+      margin: 0px 20px 20px 0;
+      box-shadow: $shadowCard;
+      border-radius: $borderRadCard;
+
+      //box con l'input e la label
+      .input_control {
+        @include SetFlexContainer (column, center, center, nowrap);
+        height: 100%;
+
+        label {
+          font-weight: 600;
+          font-style: italic;
+
+        }
+      }
+    }
+  }
+}
+
+// MEDIA QUERY
+
+// PRIMA DI MD
+@media all and (max-width: 1450px) {
+
+  #product_create {
+
+    .form_box {
+
+      // cerchio grande che contiene l'icona principale della sezione
+      .product_create_img {
+
+        i {
+        }
+      }
+
+      // rettangolo verde che contiene il nome della sezione
+      .product_name_green_box {
+        @include setPositionAbsolute(-50px, 40%);
+        width: 55%;
+
+        p {
+          font-size: 17px;
+        }
+      }
+    }
+  }
+}
+
+// MD
+@media all and (max-width: 992px) {
+
+  #product_create,
+  #product_edit {
+
+    .form_box {
+
+      // cerchio grande che contiene l'icona principale della sezione
+      .product_create_img {
+        @include setPositionAbsolute(-40px, -30px);
+        width: 100px;
+        height: 100px;
+
+        i {
+          font-size: 50px;
+        }
+      }
+
+      .create_add_image {
+        @include setPositionAbsolute(-25px, 55px);
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+
+      }
+
+      // rettangolo verde che contiene il nome della sezione
+      .product_name_green_box {
+        @include setPositionAbsolute(-50px, 50%);
+        width: 40%;
+
+        p {
+          font-size: 12px;
+          text-align: center;
+        }
+      }
+
+      .create_product_input {
+
+        .check_option {
+
+          margin-bottom: 15px;
+        }
+      }
+    }
+    .buttons_container {
+      .btn-submit,
+      .btn-back {
+        display: block;
+       margin-bottom: 10px;
+      }
+    }
+  }
+}
+// SM
+@media all and (max-width: 768px){
+
+  #restaurant_create {
+    .form_box {
+      padding: 115px 0;
+
+      .product_create_img {
+        width: 125px;
+        height: 125px;
+        top: -30px;
+        left: -20px;
+      }
+
+      .product_name_green_box {
+        @include SetFlexContainer (row, center, center, nowrap);
+        top: -35px;
+        text-align: center;
+      }
+    }
+
+    .restaurant_image_hero_box {
+      position: relative;
+      left: 0;
+      width: 100%;
+      margin-bottom: 45px;
+    }
+  }
+}
+// XS
+@media all and (max-width: 575px) {
+
+  #product_create,
+  #product_edit {
+
+    .form_box {
+
+      // cerchio grande che contiene l'icona principale della sezione
+      .product_create_img {
+        @include setPositionAbsolute(-40px, -20px);
+      }
+
+      // rettangolo verde che contiene il nome della sezione
+      .product_name_green_box {
+        display: none;
+      }
+
+    }
+  }
+
+  #restaurant_create {
+    .form_box {
+
+      .product_name_green_box {
+        display: none;
+      }
+    }
+
+  }
+
+}

@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+a {
+  color: #303030;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+    color: $greenPrimary;
+
+    i {
+      color: $greenPrimary;
+    }
+
+  }
+
+}
+
+.icon_category {
+  height: 30px;
+  width: 30px;
+  display: block;
+
+}
+
+.btn_main {
+  padding: 5px 10px;
+  border-radius: 50px;
+  box-shadow: $darkShadowCard;
+  background-color: $grayAside;
+  font-weight: $fontWeightButton;
+
+  a {
+      color: $black;
+  }
+}

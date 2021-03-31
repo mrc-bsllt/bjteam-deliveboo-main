@@ -1,0 +1,176 @@
+.aside_slide_right {
+  animation-name: aside_slide_right;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+
+.aside_slide_left {
+  animation-name: aside_slide_left;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+
+.main_slide_right {
+  animation-name: main_slide_right;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+
+.main_slide_left {
+  animation-name: main_slide_left;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+
+.fade_in {
+  animation-name: fade_in;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+
+}
+.fade_out {
+  animation-name: fade_out;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+
+.slide-enter-active {
+   -moz-transition-duration: 0.3s;
+   -webkit-transition-duration: 0.3s;
+   -o-transition-duration: 0.3s;
+   transition-duration: 0.3s;
+   -moz-transition-timing-function: ease-in;
+   -webkit-transition-timing-function: ease-in;
+   -o-transition-timing-function: ease-in;
+   transition-timing-function: ease-in;
+}
+
+.slide-leave-active {
+   -moz-transition-duration: 0.3s;
+   -webkit-transition-duration: 0.3s;
+   -o-transition-duration: 0.3s;
+   transition-duration: 0.3s;
+   -moz-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+   -webkit-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+   -o-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+   transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+}
+
+.slide-enter-to, .slide-leave {
+   max-height: 100px;
+   overflow: hidden;
+}
+
+.slide-enter, .slide-leave-to {
+   overflow: hidden;
+   max-height: 0;
+}
+
+//animazione per far ruotare la freccia della scritta settings
+.counterclockwise_180 {
+  animation-name: counterclockwise180;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+.clockwise_180 {
+  animation-name: clockwise180;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+
+}
+// ANIMATION ----------------------------------------------------------------------------------
+// quando l'aside si chiude
+@keyframes aside_slide_right {
+  0% {
+    width: 20%;
+      // padding: $paddingAside;
+    border-left: 4px solid rgba(248, 248, 247, 1);
+  }
+  100% {
+    width: 0%;
+    padding: 0;
+    border-left: 4px solid rgba(248, 248, 247, 0);
+  }
+}
+// quando l'aside si apre
+@keyframes aside_slide_left {
+  0% {
+    width: 0%;
+    padding: 0;
+    border-left: 4px solid rgba(248, 248, 247, 0);
+  }
+  100% {
+    width: 20%;
+      // padding: $paddingAside;
+    border-left: 4px solid rgba(248, 248, 247, 1);
+  }
+}
+
+@keyframes main_slide_right {
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 80%;
+  }
+}
+
+@keyframes main_slide_left {
+  0% {
+    width: 80%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes fade_in {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade_out {
+  0% {
+    opacity: 1;
+  }
+  30% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+// routa la freccia di 180 gradi
+@keyframes counterclockwise180 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-180deg);
+  }
+}
+
+@keyframes clockwise180 {
+  0% {
+    transform: rotate(-180deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}

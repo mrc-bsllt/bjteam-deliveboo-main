@@ -1,0 +1,14 @@
+@import '../_vars';
+@import '../_common';
+@import '../_mixins';
+@import "../layouts/content";
+@import "partials/homepage";
+@import 'partials/login.scss'; // stile login
+@import 'partials/success.scss';
+@import 'partials/payment.scss'; // payment
+
+@import 'partials/_404.scss';
+@import 'partials/_mail-template.scss';
+
+@import 'partials/_menu-restaurant.scss'; // stile menù ristorante
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');

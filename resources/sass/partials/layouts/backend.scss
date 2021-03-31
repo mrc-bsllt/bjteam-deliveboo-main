@@ -1,0 +1,365 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#background {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  padding: 50px;
+  background-color: $greenPrimary;
+  //da modificare?
+  .dashboard_edit_restaurant_form {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 300;
+
+    .form_box {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 800px;
+      height: 400px;
+      background-color: $white;
+      border-radius: $borderRadCard;
+      box-shadow: $shadowDashboard;
+    }
+  }
+
+  .restaurant_image_hero_box {
+    @include setPositionAbsolute(80%, 45%);
+  }
+}
+
+#container_dashboard {
+  height:100%;
+  background-color: $white;
+  border-radius: $borderRadCard;
+  box-shadow: $shadowDashboard;
+  overflow: hidden;
+  position: relative;
+  @include SetFlexContainer(row, flex-start, stretch, wrap);
+
+
+    #dashboard_main {
+      height: 100%;
+      width: 80%;
+      padding: $paddingMain;
+      overflow-y: auto;
+      background-image: url("/img/backend_hero.svg");
+      background-repeat: no-repeat;
+      background-position: top;
+    }
+
+    aside {
+      position: relative;
+      width: 20%;
+      height: 100%;
+      padding: $paddingAside;
+      border-left: 4px solid rgba(248, 248, 247, 1);
+      background-color: $grayAside;
+      overflow-y: auto;
+
+      //image curve
+      .image_curve {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: 15%;
+        background-image: url("/img/wave.svg");
+        background-repeat: no-repeat;
+        background-position: top;
+        background-size: cover;
+      }
+
+
+      #aside_top {
+        @include SetFlexContainer(row, flex-start, center, nowrap);
+        height: 80px;
+        i {
+          margin-right: 10px;
+          font-size: 30px;
+        }
+
+        span {
+          display: inline-block;
+          font-size: 20px;
+        }
+      }
+
+      #aside_center {
+        width: 100%;
+
+        //Pages
+        #route_list {
+          border-top: 2px solid $gray;
+          border-bottom: 2px solid $gray;
+
+          li {
+            transition: transform 0.3s linear;
+            // text-align: center;
+
+            .link-aside {
+
+              i {
+                font-size: 25px;
+                vertical-align: middle;
+              }
+
+              small {
+                margin: 0 5px;
+                font-size: 20px;
+                font-weight: 600;
+              }
+
+            }
+
+            &:hover {
+              transform: scale(1.1);
+
+              .link-aside {
+                color: $greenPrimary;
+              }
+
+            }
+          }
+        }
+
+
+        i.settings-icon {
+          display: none;
+        }
+      }
+
+
+    }
+
+
+
+::-webkit-scrollbar-track
+{
+ -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+ border-radius: 10px;
+ background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar
+{
+ width: 10px;
+ background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb
+{
+ border-radius: 10px;
+ -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+ background-color: $gray;
+}
+
+
+// BURGER MENU ----------------------------------------------------------------------------------
+  #burgerIcon {
+    display: inline-block;
+    width:18px;
+    height:18px;
+    cursor: pointer;
+    text-decoration: none;
+
+    i {
+      position: relative;
+      display: inline-block;
+      width: 18px;
+      height: 3px;
+      color:$black;
+      font:bold 14px/.4 Helvetica;
+      text-transform: uppercase;
+      text-indent:-55px;
+      background: $black;
+      transition:all .2s ease-out;
+    }
+  }
+  #burgerIcon i::before, #burgerIcon i::after {
+    content:'';
+    width: 18px;
+    height: 3px;
+    background: $black;
+    position: absolute;
+    left:0;
+    transition:all .2s ease-out;
+  }
+  #burgerIcon i::before {
+    top: -7px;
+  }
+  #burgerIcon i::after {
+    bottom: -7px;
+  }
+  #burgerIcon:hover i::before {
+    top: -10px;
+  }
+  #burgerIcon:hover i::after {
+    bottom: -10px;
+  }
+  #burgerIcon.active i {
+    background: $white;
+  }
+  #burgerIcon.active i::before {
+    top:0;
+    -webkit-transform: rotateZ(45deg);
+    -moz-transform: rotateZ(45deg);
+    -ms-transform: rotateZ(45deg);
+    -o-transform: rotateZ(45deg);
+    transform: rotateZ(45deg);
+  }
+  #burgerIcon.active i::after {
+    bottom:0;
+    -webkit-transform: rotateZ(-45deg);
+    -moz-transform: rotateZ(-45deg);
+    -ms-transform: rotateZ(-45deg);
+    -o-transform: rotateZ(-45deg);
+    transform: rotateZ(-45deg);
+  }
+  #burgerIcon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+}
+
+// MEDIA QUERY --------------------------------------------------------------------------------
+// MD
+@media all and (max-width: 992px) {
+  #background {
+    padding: 50px;
+
+    .dashboard_edit_restaurant_form {
+
+      .form_box {
+        position: fixed;
+        top: 50%; //
+        left: 50%; //
+        width: 100%;
+        height: 100%;
+
+        .product_name_green_box {
+          @include SetFlexContainer (row, center, center, nowrap);
+          @include setPositionAbsolute(10px, 5%); //
+          width: 90%;
+        }
+
+        .product_create_img {
+          display: block;
+          position: relative;
+          top: 0;
+          left: 16px;
+          margin-bottom: 45px;
+        }
+
+        .create_add_image {
+          top: 140px;
+          left: 115px;
+        }
+
+        .restaurant_image_hero_box {
+          position: relative;
+          width: 100%;
+          left: 0;
+          margin-bottom: 20px;
+        }
+      }
+    }
+
+  }
+
+  #container_dashboard{
+    #dashboard_main{
+
+    }
+    aside{
+      .content{
+        #aside_top{
+          @include SetFlexContainer(row, center, center, nowrap);
+
+          i {
+            margin-right: 0;
+          }
+
+          #name_admin {
+            display: none;
+          }
+        }
+        #aside_center{
+          #route_list{
+
+            li{
+              text-align: center;
+              a{
+                small{
+                  display: none;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+}
+
+//SM
+@media all and (max-width: 767px) {
+  #background {
+    padding: 20px;
+  }
+
+
+
+}
+
+// XS
+@media all and (max-width: 575px) {
+  #background {
+    padding: 0;
+
+    .buttons_container {
+
+      input,
+      button {
+        display: block;
+        margin-bottom: 10px;
+      }
+    }
+  }
+  #container_dashboard {
+    border-radius: 0;
+    aside{
+      padding: 50px 0;
+    }
+
+    #settings_dashboard_container {
+
+      a {
+
+        span {
+          display: none;
+        }
+
+        i.settings-icon {
+          display: block;
+          font-size: 25px;
+        }
+      }
+    }
+  }
+
+}
